@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Lab Registration</title>
+</head>
+<body>
+
+<h2>DevOps Lab Registration</h2>
+
+<form id="registrationForm" onsubmit="registerUser(event)">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+ 
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+ 
+    <button type="submit">Register</button>
+</form>
+
+<div id="confirmationMessage" style="display:none;">Thank you for registering!</div>
+
+<script>
+    function registerUser(event) {
+        event.preventDefault();
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var emailRegex = /^\S+@\S+\.\S+$/;
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+        document.getElementById('registrationForm').style.display = 'none';
+        document.getElementById('confirmationMessage').style.display = 'block';
+    }
+</script>
+
+</body>
+<html>
